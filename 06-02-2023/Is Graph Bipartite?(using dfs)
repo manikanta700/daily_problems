@@ -1,0 +1,38 @@
+class Solution {
+    public boolean isBipartite(int[][] graph) {
+        int v = graph.length;
+        int[] visited = new int[v];
+
+        for(int i=0;i<v;i++){
+            if(visited[i]==0){
+                if(!DFS(i,visited,graph)){
+                    return false;
+                }
+            }
+        }
+       
+       return true;
+        
+    }
+
+    public boolean DFS(int i,int[] visited,int[][] graph){
+        
+        if(visited[i]==0){
+            visited[i]=1;
+        }
+        for(int j:graph[i]){
+            if(visited[j]==0){
+                visited[j]=((visited[i]==1)?2:1);
+                if(!DFS(j,visited,graph)){
+                    return false;
+                }
+                
+            }
+            else if(visited[j]==visited[i]){
+                return false;
+            }
+        
+        }
+        return true;
+    }
+}
