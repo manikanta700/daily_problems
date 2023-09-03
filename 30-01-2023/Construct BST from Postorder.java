@@ -30,7 +30,7 @@ class GFG
 
         //Add your code here.MAX_VALUE
 
-        Node NT =buildBSTfromPost(post, Integer.MAX_VALUE,new int[]{post.length-1});
+        Node NT =buildBSTfromPost(post, Integer.MIN_VALUE,new int[]{post.length-1});
 
         return NT;
 
